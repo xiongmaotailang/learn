@@ -1,4 +1,4 @@
-package org.aeoluswqq.learn.apache.exec;
+package org.xiongmaotailang.apache.exec;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -7,7 +7,11 @@ import java.io.InputStreamReader;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
-
+/**
+ * 
+ * @author xiongmaotailang
+ *
+ */
 public class RunCommand {
 	public static void main(String a[]) throws Exception {
 		runtime();
