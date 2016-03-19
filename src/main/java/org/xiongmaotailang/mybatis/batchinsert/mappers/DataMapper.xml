@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.xiongmaotailang.mybatis.batchinsert.mappers.DataMapper">	
+	<insert id="insertPVUV">
+        insert into  ${table}(pv,uv,time) values(#{pv},#{uv},#{time})
+    </insert>
+    <insert id="batchInsertPVUV" parameterType="java.util.List">  
+        insert into  ${table}(pv,uv,time) values  
+        <foreach collection="list" item="item" index="index"  
+            separator=",">  
+            (#{item.pv,jdbcType=INTEGER},#{item.uv,jdbcType=INTEGER},#{item.time,jdbcType=CHAR}  
+            )  
+        </foreach>  
+    </insert>  
+</mapper>  

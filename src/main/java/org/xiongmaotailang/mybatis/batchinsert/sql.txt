@@ -1,0 +1,6 @@
+CREATE TABLE NewsPvUv (
+	id INT UNSIGNED NOT NULL PRIMARY KEY auto_increment,
+	`pv` bigint(11) DEFAULT NULL,
+    `uv` bigint(11) DEFAULT NULL,
+     time VARCHAR (15) NOT NULL
+)
