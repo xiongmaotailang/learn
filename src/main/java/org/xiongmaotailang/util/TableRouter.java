@@ -9,11 +9,21 @@ import java.security.MessageDigest;
 public class TableRouter {
 
 	public static void main(String[] args) {
-		// System.out.println(md5("7130841"));
 		System.out.println(getTable("7130841", "test_uuid", 8));
+		System.out.println(getTable1(11130841, "test_uuid"));
 	}
-
-	// hash水平分表
+	
+	// 使用移位分表
+	/*
+	 * 如果我们预估我们系统的用户是100亿，单张表的最优数据量是100万，
+	 * 那么我们就需要将UID移动20来确保每个表是100万的数据，保留用户表（user_xxxx）四位来扩展1万张表
+	 */
+	public static String getTable1(int uid, String prefix) {
+		
+		return prefix + "_" + String.format("%04d",(uid>>20));
+	}
+	
+	// 使用md5做hash水平分表
 	public static String getTable(String mark, String prefix, int num) {
 		if (num == 0)
 			return prefix;
